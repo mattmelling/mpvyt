@@ -1,28 +1,28 @@
 #+TITLE: mpvyt
-* mpvyt
+
 A playlist manager for [[https://mpv.io/][mpv]], designed to support my constant consumption of Youtube videos.
 
-** Motivation
+* Motivation
 I enjoy watching & listening to a variety of Youtube podcasts while I work. For audio-only podcasts I use [[https://www.pocketcasts.com/][Pocketcasts]] on Android, and one feature I really like is the playlist feature which is populated from my subscriptions. For Youtube stuff I'm a bit more picky and will manually choose, but I felt it was lacking a decent way to quickly build up and watch a playlist.
 
 Since moving my desktop environment to ~i3-gaps~ I found myself preferring mpv+youtube-dl as a player rather than the web UI, and was using some scripts to enqueue items. The downside was that this playlist was lost when the process exited. After trying out a few different scripts, ~mpvyt~ emerged.
 
-** How it works
+* How it works
 ~mpvyt~ runs as a service and waits for and mpv process to start. I use a script to add items to a running mpv process' playlist (see below). ~mpvyt~ detects these changes and writes the playlist to disk. When a video is finished or skipped, ~mpvyt~ writes the rest of the playlist to disk, giving us a persistent playlist.
 
-** Building 
-*** Nix
+* Building 
+** Nix
 #+BEGIN_SRC sh
 nix-build # output is under result/bin 
 #+END_SRC
-*** setuptools
+** setuptools
 #+BEGIN_SRC sh
 python setup.py build # output is under build/
 #+END_SRC
-** Supporting tools
+* Supporting tools
 These scripts live in my [[https://github.com/rycee/home-manager][home.nix]]:
 
-*** ~mpy~: Start the player
+** ~mpy~: Start the player
 #+BEGIN_SRC nix
 { pkgs }:
 pkgs.writeScriptBin "mpy" ''
@@ -37,7 +37,7 @@ pkgs.writeScriptBin "mpy" ''
 
 This starts ~mpv~ listening on both the IPC socket for ~mpvyt~ as well as an input socket for the enqueue script.
 
-*** ~mpy-enqueue~
+** ~mpy-enqueue~
 This is bound to ~Super+Shift+V~in my ~i3~ configuration. I browse Youtube and copy video URLs to my clipboard, then use this script to add an item to the playlist and start the player if it is not already running.
 
 #+BEGIN_SRC nix
