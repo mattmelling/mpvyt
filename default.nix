@@ -4,7 +4,4 @@ buildPythonPackage {
   name = "mpvyt";
   src = ./.;
   version = "0.0.1";
-  # propagatedBuildInputs = [
-  #   python37
-  # ];
 }

@@ -33,6 +33,7 @@ pkgs.writeScriptBin "mpy" ''
       --playlist="$HOME/.mpvplaylist" \
       --ytdl-raw-options=mark-watched=,cookies=$HOME/cookies.txt \
       --save-position-on-quit
+''
 #+END_SRC
 
 This starts ~mpv~ listening on both the IPC socket for ~mpvyt~ as well as an input socket for the enqueue script.

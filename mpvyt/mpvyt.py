@@ -6,10 +6,10 @@ from mpvyt.observer import MpvObserverThread
 
 SOCK_PATH = os.environ['MPV_SOCKET_PATH'] \
     if 'MPV_SOCKET_PATH' in os.environ \
-       else '/home/matt/.mpvsocket'
+       else os.path.join(os.environ['HOME'], '.mpvsocket')
 PLAYLIST_PATH = os.environ['MPV_PLAYLIST_PATH'] \
     if 'MPV_PLAYLIST_PATH' in os.environ \
-       else '/home/matt/.mpvplaylist'
+       else os.path.join(os.environ['HOME'], '.mpvplaylist')
 
 
 class MpvMonitor:
