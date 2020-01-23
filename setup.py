@@ -4,10 +4,11 @@ from setuptools import setup
 def main():
     setup(name='mpvyt',
           packages=['mpvyt'],
-          entry_points={
-              'console_scripts': [
-                  'mpvyt = mpvyt.mpvyt:main'
-              ]})
+          install_requires=[
+              'requests',
+              'beautifulsoup4',
+              'lxml'
+          ])
 
 
 if __name__ == '__main__':
