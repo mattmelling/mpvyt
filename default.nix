@@ -4,7 +4,7 @@ buildPythonPackage {
   name = "mpvyt";
   src = ./.;
   version = "0.0.1";
-  buildInputs = [
+  propagatedBuildInputs = [
     beautifulsoup4
     requests
     lxml
