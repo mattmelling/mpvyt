@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {}, ... }:
 with pkgs.python37Packages;
 buildPythonPackage {
   name = "mpvyt";
